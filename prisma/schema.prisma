@@ -1,0 +1,25 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum LANG {
+  en
+  uz
+  ru
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  telegramId String   @unique
+  username   String?
+  lang       LANG     @default(uz)
+  balans     Int      @default(0)
+  firstName  String?
+  wallet_uri String?  @unique
+  createdAt  DateTime @default(now())
+}

@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
+    "@prisma/client": "^6.16.3",
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.3",
     "nodemon": "^3.1.10",
-    "telegraf": "^4.16.3"
+    "telegraf": "^4.16.3",
+    "ton": "^13.9.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.16.3"
   }
 }
