@@ -5,8 +5,8 @@ import { getTonTransactions } from "./functions/tonapi.js";
 import axios from "axios";
 dotenv.config();
 
-const bot = new Telegraf("8320918842:AAH9fr3pVtSc8ATSytMQT-CAEL4ZS9mYjU0");
-
+const bot = new Telegraf("8422959228:AAF-awZANVmfHUnlnVzu3wMOLxLUfwAqtus");
+  :
 const walletSessions = new Map();
 
 const messages = {
@@ -110,6 +110,7 @@ bot.start(async (ctx) => {
             callback_data: "profile",
           },
         ],
+        [{ text: "📃 Kelishuv Yaratish",callback_data:"deal" }],
         [
           {
             text:
