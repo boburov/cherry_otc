@@ -6,7 +6,6 @@ import axios from "axios";
 dotenv.config();
 
 const bot = new Telegraf("8422959228:AAF-awZANVmfHUnlnVzu3wMOLxLUfwAqtus");
-  :
 const walletSessions = new Map();
 
 const messages = {
