@@ -9,7 +9,6 @@ export async function getTonTransactions(address) {
 
     if (!data.transactions) return [];
 
-    // Faqat kerakli ma’lumotlarni ajratamiz
     const txs = data.transactions.map((tx) => {
       const from = tx.in_msg?.source?.address || "Noma’lum manba";
       const to = tx.in_msg?.destination?.address || "Noma’lum qabulchi";

@@ -1,3 +1,5 @@
+// ---- schema.prisma ----
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -19,28 +21,33 @@ enum DEAL_STATUS {
   CANCELLED
 }
 
+model User {
+  id          Int      @id @default(autoincrement())
+  telegramId  String   @unique
+  username    String?
+  lang        LANG     @default(uz)
+  balans      Int      @default(0)
+  firstName   String?
+  wallet_uri  String?   @unique
+  createdAt   DateTime @default(now())
+
+  createdDeals Deal[]  @relation("CreatorDeals")
+  boughtDeals  Deal[]  @relation("BuyerDeals")
+}
+
 model Deal {
-  id              Int         @id @default(autoincrement())
+  id              Int          @id @default(autoincrement())
   title           String
   amount          BigInt
   creatorId       Int
   creatorTelegram String
   buyerTelegram   String?
   txHash          String?
-  status          DEAL_STATUS @default(OPEN)
-  createdAt       DateTime    @default(now())
+  status          DEAL_STATUS  @default(OPEN)
+  createdAt       DateTime     @default(now())
   paidAt          DateTime?
-}
 
-model User {
-  id         Int      @id @default(autoincrement())
-  telegramId String   @unique
-  username   String?
-  lang       LANG     @default(uz)
-  balans     Int      @default(0)
-  firstName  String?
-  deal       String
-  wallet_uri String?  @unique
-  createdAt  DateTime @default(now())
+  creator   User  @relation("CreatorDeals", fields: [creatorId], references: [id])
+  buyerId   Int?
+  buyer     User? @relation("BuyerDeals", fields: [buyerId], references: [id])
 }
-

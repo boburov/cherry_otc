@@ -2,16 +2,16 @@
   "name": "cherry_otc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon main.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@prisma/client": "^6.16.3",
+    "@prisma/client": "^6.18.0",
     "axios": "^1.12.2",
     "dotenv": "^17.2.3",
     "nodemon": "^3.1.10",
